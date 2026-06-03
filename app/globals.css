@@ -363,7 +363,7 @@ footer { background: var(--ink); color: rgba(255,255,255,0.5); padding: 72px 60p
   .bottle-stage .side-left, .bottle-stage .side-right { display: none; }
   footer { padding: 60px 24px 32px; }
   .hero-slogan-line1, .hero-slogan-line2 {
-    font-size: clamp(2rem, 11vw, 3rem);
+    font-size: 8.5vw;
     font-weight: 500;
   }
 }
