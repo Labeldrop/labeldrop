@@ -35,7 +35,7 @@ export default function Footer() {
       <footer>
         <div className="footer-top">
           <div className="footer-brand">
-            <div className="footer-logo">LabelDrop</div>
+            <div className="footer-logo">LABELDROP</div>
             <div className="footer-tagline">&bdquo;Ihre Identität. Auf jeder Flasche.&ldquo;</div>
             <div className="footer-socials">
               <a className="social-btn" href="https://www.instagram.com/labeldrop.de?igsh=MWI3d2dhbzhtamphYw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" title="Instagram">
