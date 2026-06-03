@@ -3,6 +3,30 @@
 import { useState } from 'react';
 import ImpressumModal from './ImpressumModal';
 
+const impressumBtnStyle: React.CSSProperties = {
+  background: 'none',
+  border: 'none',
+  padding: 0,
+  cursor: 'pointer',
+  fontSize: '0.85rem',
+  fontWeight: 300,
+  color: 'rgba(255,255,255,0.45)',
+  textDecoration: 'none',
+  fontFamily: "'Outfit', sans-serif",
+  transition: 'color 0.3s',
+};
+
+const impressumLegalBtnStyle: React.CSSProperties = {
+  background: 'none',
+  border: 'none',
+  padding: 0,
+  cursor: 'pointer',
+  fontSize: '0.75rem',
+  color: 'rgba(255,255,255,0.3)',
+  fontFamily: "'Outfit', sans-serif",
+  transition: 'color 0.3s',
+};
+
 export default function Footer() {
   const [impressumOpen, setImpressumOpen] = useState(false);
 
@@ -49,7 +73,12 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Rechtliches</h4>
             <ul>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); setImpressumOpen(true); }}>Impressum</a></li>
+              <li>
+                <button style={impressumBtnStyle} onClick={() => setImpressumOpen(true)}
+                  onMouseOver={(e) => ((e.target as HTMLElement).style.color = 'white')}
+                  onMouseOut={(e) => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.45)')}
+                >Impressum</button>
+              </li>
               <li><a href="#">Datenschutz</a></li>
               <li><a href="#">AGB</a></li>
             </ul>
@@ -72,7 +101,10 @@ export default function Footer() {
         <div className="footer-bottom">
           <span className="footer-copy">© 2025 LabelDrop. Alle Rechte vorbehalten.</span>
           <div className="footer-legal">
-            <a href="#" onClick={(e) => { e.preventDefault(); setImpressumOpen(true); }}>Impressum</a>
+            <button style={impressumLegalBtnStyle} onClick={() => setImpressumOpen(true)}
+              onMouseOver={(e) => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.6)')}
+              onMouseOut={(e) => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.3)')}
+            >Impressum</button>
             <a href="#">Datenschutz</a>
             <a href="#">Cookies</a>
           </div>
