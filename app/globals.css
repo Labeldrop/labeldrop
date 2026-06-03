@@ -341,8 +341,9 @@ footer { background: var(--ink); color: rgba(255,255,255,0.5); padding: 72px 60p
   .nav-links { display: none; }
   section { padding: 80px 24px; }
   .about { grid-template-columns: 1fr; gap: 60px; }
-  .about-visual { height: 320px; }
-  .card-main { width: 220px; height: 360px; }
+  .about-visual { height: 380px; }
+  .card-floating { display: none; }
+  .card-main { width: 240px; height: 380px; }
   .why-grid { grid-template-columns: 1fr 1fr; }
   .audience-grid { grid-template-columns: repeat(2, 1fr); }
   .process-steps { grid-template-columns: 1fr 1fr; gap: 40px; }
