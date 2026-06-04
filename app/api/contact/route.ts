@@ -6,6 +6,13 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(req: Request) {
   const { name, firma, email, menge, nachricht } = await req.json();
 
+  const now = new Date();
+  const zeitpunkt = now.toLocaleString('de-DE', {
+    timeZone: 'Europe/Berlin',
+    day: '2-digit', month: '2-digit', year: 'numeric',
+    hour: '2-digit', minute: '2-digit',
+  }) + ' Uhr';
+
   if (!name || !email) {
     return NextResponse.json({ error: 'Name und E-Mail sind Pflichtfelder.' }, { status: 400 });
   }
@@ -34,8 +41,8 @@ export async function POST(req: Request) {
                 <td style="padding: 12px 0; border-bottom: 1px solid #EEF4FA; color: #1D2B4F;">${firma}</td>
               </tr>` : ''}
               <tr>
-                <td style="padding: 12px 0; border-bottom: 1px solid #EEF4FA; color: #9FB6CF; font-size: 12px; letter-spacing: 1px; text-transform: uppercase;">E-Mail</td>
-                <td style="padding: 12px 0; border-bottom: 1px solid #EEF4FA;"><a href="mailto:${email}" style="color: #1D65AD;">${email}</a></td>
+                <td style="padding: 12px 0; border-bottom: 1px solid #EEF4FA; color: #9FB6CF; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap;">E-Mail</td>
+                <td style="padding: 12px 0; border-bottom: 1px solid #EEF4FA; white-space: nowrap;"><a href="mailto:${email}" style="color: #1D65AD;">${email}</a></td>
               </tr>
               ${menge ? `
               <tr>
@@ -44,9 +51,13 @@ export async function POST(req: Request) {
               </tr>` : ''}
               ${nachricht ? `
               <tr>
-                <td style="padding: 12px 0; color: #9FB6CF; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; vertical-align: top;">Nachricht</td>
-                <td style="padding: 12px 0; color: #1D2B4F; line-height: 1.6;">${nachricht.replace(/\n/g, '<br>')}</td>
+                <td style="padding: 12px 0; border-bottom: 1px solid #EEF4FA; color: #9FB6CF; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; vertical-align: top;">Nachricht</td>
+                <td style="padding: 12px 0; border-bottom: 1px solid #EEF4FA; color: #1D2B4F; line-height: 1.6;">${nachricht.replace(/\n/g, '<br>')}</td>
               </tr>` : ''}
+              <tr>
+                <td style="padding: 12px 0; color: #9FB6CF; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap;">Zeitpunkt</td>
+                <td style="padding: 12px 0; color: #9FB6CF; font-size: 13px;">${zeitpunkt}</td>
+              </tr>
             </table>
             <div style="margin-top: 24px; padding: 16px; background: #EEF4FA; border-radius: 6px; font-size: 13px; color: #9FB6CF;">
               Einfach auf "Antworten" klicken um direkt an ${email} zu antworten.
