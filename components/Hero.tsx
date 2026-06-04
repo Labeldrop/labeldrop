@@ -40,9 +40,7 @@ export default function Hero() {
       <div className="hero-orb orb-2" />
 
       <p className="hero-eyebrow">Premium Branding · Individuell gefertigt</p>
-      <span className="hero-slogan-line1">
-        <span style={{ fontFamily: "'Playfair Display', serif" }}>Ihre Identität.</span>
-      </span>
+      <span className="hero-slogan-line1">Ihre Identität.</span>
       <span className="hero-slogan-line2">Auf jeder Flasche.</span>
       <p className="hero-sub">
         Labeldrop verwandelt jede Flasche Wasser in ein hochwertiges Markenprodukt. Ob bei Meetings, Events, Messen oder als Kundengeschenk – Ihr Logo, Ihr Design, Ihr Eindruck.
