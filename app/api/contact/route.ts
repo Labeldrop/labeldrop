@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
-  const { name, firma, email, menge, nachricht } = await req.json();
+  const { name, firma, email, telefon, menge, nachricht } = await req.json();
 
   const now = new Date();
   const zeitpunkt = now.toLocaleString('de-DE', {
@@ -44,6 +44,11 @@ export async function POST(req: Request) {
                 <td style="padding: 12px 0; border-bottom: 1px solid #EEF4FA; color: #9FB6CF; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap;">E-Mail</td>
                 <td style="padding: 12px 0; border-bottom: 1px solid #EEF4FA; white-space: nowrap;"><a href="mailto:${email}" style="color: #1D65AD;">${email}</a></td>
               </tr>
+              ${telefon ? `
+              <tr>
+                <td style="padding: 12px 0; border-bottom: 1px solid #EEF4FA; color: #9FB6CF; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap;">Telefon</td>
+                <td style="padding: 12px 0; border-bottom: 1px solid #EEF4FA; color: #1D2B4F; white-space: nowrap;">${telefon}</td>
+              </tr>` : ''}
               ${menge ? `
               <tr>
                 <td style="padding: 12px 0; border-bottom: 1px solid #EEF4FA; color: #9FB6CF; font-size: 12px; letter-spacing: 1px; text-transform: uppercase;">Menge</td>

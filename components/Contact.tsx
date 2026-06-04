@@ -5,7 +5,7 @@ import { useState } from 'react';
 export default function Contact() {
   const [selectedQty, setSelectedQty] = useState('');
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
-  const [form, setForm] = useState({ name: '', firma: '', email: '', nachricht: '' });
+  const [form, setForm] = useState({ name: '', firma: '', email: '', telefon: '', nachricht: '' });
 
   const handleQty = (val: string) => setSelectedQty(val === selectedQty ? '' : val);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
@@ -18,11 +18,11 @@ export default function Contact() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, menge: selectedQty }),
+        body: JSON.stringify({ ...form, menge: selectedQty, telefon: form.telefon }),
       });
       if (res.ok) {
         setStatus('success');
-        setForm({ name: '', firma: '', email: '', nachricht: '' });
+        setForm({ name: '', firma: '', email: '', telefon: '', nachricht: '' });
         setSelectedQty('');
         setTimeout(() => setStatus('idle'), 5000);
       } else {
@@ -61,9 +61,18 @@ export default function Contact() {
               <input name="firma" type="text" placeholder="Musterfirma GmbH" value={form.firma} onChange={handleChange} />
             </div>
           </div>
-          <div className="form-group">
-            <label>E-Mail-Adresse *</label>
-            <input name="email" type="email" placeholder="max@musterfirma.de" value={form.email} onChange={handleChange} />
+          <div className="form-row">
+            <div className="form-group">
+              <label>E-Mail-Adresse *</label>
+              <input name="email" type="email" placeholder="max@musterfirma.de" value={form.email} onChange={handleChange} />
+            </div>
+            <div className="form-group">
+              <label>
+                Telefonnummer{' '}
+                <span style={{ fontSize: '0.65rem', color: 'var(--ice-5)', letterSpacing: '0.1em' }}>(optional)</span>
+              </label>
+              <input name="telefon" type="tel" placeholder="+49 123 456789" value={form.telefon} onChange={handleChange} />
+            </div>
           </div>
           <div className="form-group">
             <label>
