@@ -16,8 +16,8 @@ export default function Why() {
           <h2 className="section-title">Sechs Gründe für<br />Ihr Branding.</h2>
         </div>
         <div className="why-grid">
-          {cards.map((c) => (
-            <div className="why-card reveal" key={c.num}>
+          {cards.map((c, i) => (
+            <div className="why-card reveal" key={c.num} data-delay={i * 120}>
               <div className="why-number">{c.num}</div>
               <h3>{c.title}</h3>
               <p>{c.text}</p>

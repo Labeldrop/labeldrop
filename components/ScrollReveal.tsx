@@ -9,10 +9,10 @@ export default function ScrollReveal() {
       (entries) => {
         entries.forEach((e) => {
           if (e.isIntersecting) {
-            const siblings = Array.from(e.target.parentElement?.children ?? []);
-            const delay = siblings.indexOf(e.target as Element) * 80;
-            setTimeout(() => e.target.classList.add('visible'), delay);
-            observer.unobserve(e.target);
+            const el = e.target as HTMLElement;
+            const delay = parseInt(el.dataset.delay ?? '0', 10);
+            setTimeout(() => el.classList.add('visible'), delay);
+            observer.unobserve(el);
           }
         });
       },
