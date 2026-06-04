@@ -12,7 +12,7 @@ export default function Why() {
     <section className="why-section section-why" id="why">
       <div className="why-inner">
         <div className="why-header reveal">
-          <div className="section-label">Warum LabelDrop</div>
+          <div className="section-label">Warum Labeldrop</div>
           <h2 className="section-title">Sechs Gründe für<br />Ihr Branding.</h2>
         </div>
         <div className="why-grid">

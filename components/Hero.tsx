@@ -45,7 +45,7 @@ export default function Hero() {
       </span>
       <span className="hero-slogan-line2">Auf jeder Flasche.</span>
       <p className="hero-sub">
-        LabelDrop verwandelt jede Flasche Wasser in ein hochwertiges Markenprodukt. Ob bei Meetings, Events, Messen oder als Kundengeschenk – Ihr Logo, Ihr Design, Ihr Eindruck.
+        Labeldrop verwandelt jede Flasche Wasser in ein hochwertiges Markenprodukt. Ob bei Meetings, Events, Messen oder als Kundengeschenk – Ihr Logo, Ihr Design, Ihr Eindruck.
         <br />
         <span style={{ color: 'var(--ink)', fontWeight: 600, fontSize: '1.05rem', letterSpacing: '0.03em' }}>Marketing, das getrunken wird.</span>
       </p>

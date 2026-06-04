@@ -26,7 +26,7 @@ export default function Nav() {
 
   return (
     <nav id="nav">
-      <a className="nav-logo" href="#home" aria-label="LabelDrop" onClick={(e) => { e.preventDefault(); scrollTo('home'); }}>
+      <a className="nav-logo" href="#home" aria-label="Labeldrop" onClick={(e) => { e.preventDefault(); scrollTo('home'); }}>
         <LogoSVG />
         <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: '0.95rem', fontWeight: 500, letterSpacing: '0.22em', color: '#1D65AD', marginLeft: '10px' }}>
           LABELDROP

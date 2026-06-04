@@ -99,7 +99,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <span className="footer-copy">© 2025 LabelDrop. Alle Rechte vorbehalten.</span>
+          <span className="footer-copy">© 2025 Labeldrop. Alle Rechte vorbehalten.</span>
           <div className="footer-legal">
             <button style={impressumLegalBtnStyle} onClick={() => setImpressumOpen(true)}
               onMouseOver={(e) => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.6)')}
