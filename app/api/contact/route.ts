@@ -72,6 +72,92 @@ export async function POST(req: Request) {
       `,
     });
 
+    // Automatische Antwort an den Kunden
+    await resend.emails.send({
+      from: 'Labeldrop <onboarding@resend.dev>',
+      to: email,
+      replyTo: 'info@labeldrop.de',
+      subject: `Vielen Dank für Ihre Anfrage, ${name.split(' ')[0]}!`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 32px; background: #EEF4FA;">
+
+          <!-- Header -->
+          <div style="background: #1D65AD; padding: 32px 28px; border-radius: 8px 8px 0 0; text-align: center;">
+            <div style="display: inline-block; margin-bottom: 12px;">
+              <span style="color: white; font-size: 22px; font-weight: bold; letter-spacing: 3px;">LABELDROP</span>
+            </div>
+            <p style="color: #EEF4FA; margin: 0; font-size: 13px; letter-spacing: 1px;">PREMIUM BRANDING · INDIVIDUELL GEFERTIGT</p>
+          </div>
+
+          <!-- Inhalt -->
+          <div style="background: white; padding: 36px 32px; border-radius: 0 0 8px 8px;">
+
+            <p style="color: #9FB6CF; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin: 0 0 8px;">Ihre Anfrage</p>
+            <h2 style="color: #1D2B4F; font-size: 22px; font-weight: 300; margin: 0 0 24px; line-height: 1.3;">
+              Vielen Dank,<br/><strong style="font-weight: 600;">${name.split(' ')[0]}.</strong>
+            </h2>
+
+            <p style="color: #4a6080; font-size: 14px; line-height: 1.8; margin: 0 0 16px;">
+              Wir haben Ihre Anfrage erhalten und melden uns <strong>innerhalb von 24 Stunden</strong> persönlich bei Ihnen — unverbindlich und auf Augenhöhe.
+            </p>
+
+            <p style="color: #4a6080; font-size: 14px; line-height: 1.8; margin: 0 0 32px;">
+              Bei Labeldrop verwandeln wir jede Flasche Wasser in ein hochwertiges Markenprodukt — mit Ihrem Logo, Ihren Farben, Ihrer Persönlichkeit. <em>Marketing, das getrunken wird.</em>
+            </p>
+
+            <!-- Trennlinie -->
+            <div style="border-top: 1px solid #EEF4FA; margin: 0 0 28px;"></div>
+
+            <!-- Drei Punkte -->
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 32px;">
+              <tr>
+                <td style="width: 33%; padding: 0 8px 0 0; vertical-align: top;">
+                  <div style="background: #EEF4FA; border-radius: 8px; padding: 16px; text-align: center;">
+                    <div style="color: #1D65AD; font-size: 20px; margin-bottom: 8px;">✦</div>
+                    <p style="color: #1D2B4F; font-size: 12px; font-weight: bold; margin: 0 0 4px; letter-spacing: 0.5px;">INDIVIDUELL</p>
+                    <p style="color: #9FB6CF; font-size: 11px; margin: 0; line-height: 1.5;">Jede Flasche auf Ihr Unternehmen abgestimmt</p>
+                  </div>
+                </td>
+                <td style="width: 33%; padding: 0 4px; vertical-align: top;">
+                  <div style="background: #EEF4FA; border-radius: 8px; padding: 16px; text-align: center;">
+                    <div style="color: #1D65AD; font-size: 20px; margin-bottom: 8px;">✦</div>
+                    <p style="color: #1D2B4F; font-size: 12px; font-weight: bold; margin: 0 0 4px; letter-spacing: 0.5px;">PREMIUM</p>
+                    <p style="color: #9FB6CF; font-size: 11px; margin: 0; line-height: 1.5;">Hochwertige Materialien & Druck</p>
+                  </div>
+                </td>
+                <td style="width: 33%; padding: 0 0 0 8px; vertical-align: top;">
+                  <div style="background: #EEF4FA; border-radius: 8px; padding: 16px; text-align: center;">
+                    <div style="color: #1D65AD; font-size: 20px; margin-bottom: 8px;">✦</div>
+                    <p style="color: #1D2B4F; font-size: 12px; font-weight: bold; margin: 0 0 4px; letter-spacing: 0.5px;">PERSÖNLICH</p>
+                    <p style="color: #9FB6CF; font-size: 11px; margin: 0; line-height: 1.5;">Beratung von Idee bis Lieferung</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+
+            <!-- CTA Button -->
+            <div style="text-align: center; margin-bottom: 32px;">
+              <a href="https://labeldrop.de" style="display: inline-block; background: #1D65AD; color: white; text-decoration: none; padding: 14px 36px; border-radius: 40px; font-size: 13px; letter-spacing: 2px; font-weight: 500;">
+                LABELDROP.DE
+              </a>
+            </div>
+
+            <!-- Trennlinie -->
+            <div style="border-top: 1px solid #EEF4FA; margin: 0 0 20px;"></div>
+
+            <!-- Footer Info -->
+            <p style="color: #9FB6CF; font-size: 12px; text-align: center; margin: 0; line-height: 1.8;">
+              Bei Fragen antworten Sie einfach auf diese E-Mail.<br/>
+              <a href="https://labeldrop.de" style="color: #1D65AD; text-decoration: none;">labeldrop.de</a>
+              &nbsp;·&nbsp;
+              <a href="mailto:info@labeldrop.de" style="color: #1D65AD; text-decoration: none;">info@labeldrop.de</a>
+            </p>
+
+          </div>
+        </div>
+      `,
+    });
+
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error('E-Mail Fehler:', error);
