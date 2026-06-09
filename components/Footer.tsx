@@ -45,13 +45,6 @@ export default function Footer() {
                   <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
                 </svg>
               </a>
-              <a className="social-btn" href="#" title="LinkedIn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                  <rect x="2" y="9" width="4" height="12"/>
-                  <circle cx="4" cy="4" r="2"/>
-                </svg>
-              </a>
               <a className="social-btn" href="mailto:info@labeldrop.de" title="E-Mail">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
