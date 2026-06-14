@@ -61,7 +61,7 @@ export default function ImpressumModal({ open, onClose }: Props) {
           <div style={{ height: 1, background: 'var(--ice-2)' }} />
           <div>
             <div style={{ fontSize: '0.68rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--ice-5)', marginBottom: 8 }}>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</div>
-            <p style={{ fontSize: '0.9rem', fontWeight: 400, color: 'var(--ink)', lineHeight: 1.8 }}>Mehdi Kazem<br />Westendstraße 42<br />63225 Langen</p>
+            <p style={{ fontSize: '0.9rem', fontWeight: 400, color: 'var(--ink)', lineHeight: 1.8 }}>Mehdi Kazem<br />Werner-Heisenberg-Straße 2<br />63263 Neu-Isenburg</p>
           </div>
           <div style={{ height: 1, background: 'var(--ice-2)' }} />
           <div>
